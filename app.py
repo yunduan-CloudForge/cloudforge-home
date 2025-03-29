@@ -13,13 +13,13 @@ logger = logging.getLogger(__name__)
 
 # 邮件配置
 # 根据飞书管理后台信息优化SMTP配置
-app.config['MAIL_SERVER'] = 'smtp.feishu.cn'
+app.config['MAIL_SERVER'] = 'your_mail_server'
 app.config['MAIL_PORT'] = 465  # 飞书可能使用465端口支持SSL
 app.config['MAIL_USE_TLS'] = False  # 不使用TLS
 app.config['MAIL_USE_SSL'] = True  # 使用SSL
-app.config['MAIL_USERNAME'] = 'CloudForge-official@yunforge.xyz'
-app.config['MAIL_PASSWORD'] = '48TQc6oMaU6tMF1k'
-app.config['MAIL_DEFAULT_SENDER'] = 'CloudForge-official@yunforge.xyz'
+app.config['MAIL_USERNAME'] = 'your_email@example.com'
+app.config['MAIL_PASSWORD'] = 'your_password'
+app.config['MAIL_DEFAULT_SENDER'] = 'your_email@example.com'
 app.config['MAIL_MAX_EMAILS'] = 1  # 限制每次连接发送的邮件数量
 app.config['MAIL_TIMEOUT'] = 60  # 增加超时时间
 app.config['MAIL_DEBUG'] = True  # 启用邮件调试
