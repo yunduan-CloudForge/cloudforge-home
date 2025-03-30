@@ -980,3 +980,18 @@ img {
         opacity: 0.5;
     }
 }
+
+/* Webviso 访问统计样式 */
+.webviso-stats {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+    color: #666;
+    background-color: #f5f5f5;
+    border-top: 1px solid #eee;
+}
+
+.webviso-stats span {
+    font-weight: bold;
+    margin: 0 5px;
+}
