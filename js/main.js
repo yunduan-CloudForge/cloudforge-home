@@ -1,195 +1,179 @@
-// 主题切换功能
+// 主JavaScript文件
+
 document.addEventListener('DOMContentLoaded', function() {
-    // 创建主题切换按钮
-    const createThemeToggle = () => {
-        const nav = document.querySelector('.nav ul');
-        const themeToggleItem = document.createElement('li');
-        const themeToggleLink = document.createElement('a');
-        themeToggleLink.href = '#';
-        themeToggleLink.id = 'theme-toggle';
-        themeToggleLink.innerHTML = '<i class="fas fa-moon"></i>';
-        themeToggleLink.setAttribute('title', '切换深色模式');
-        themeToggleItem.appendChild(themeToggleLink);
-        nav.appendChild(themeToggleItem);
-
-        // 添加点击事件
-        themeToggleLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            toggleTheme();
-        });
-    };
-
-    // 切换主题
-    const toggleTheme = () => {
-        const body = document.body;
-        const themeToggle = document.getElementById('theme-toggle');
+    // 导航栏滚动效果
+    const header = document.querySelector('.main-header');
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
-        if (body.classList.contains('dark-theme')) {
-            // 切换到浅色模式
-            body.classList.remove('dark-theme');
-            themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            themeToggle.setAttribute('title', '切换深色模式');
-            localStorage.setItem('theme', 'light');
+        if (scrollTop > lastScrollTop && scrollTop > 50) {
+            // 向下滚动
+            header.style.transform = 'translateY(-100%)';
         } else {
-            // 切换到深色模式
-            body.classList.add('dark-theme');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            themeToggle.setAttribute('title', '切换浅色模式');
-            localStorage.setItem('theme', 'dark');
+            // 向上滚动
+            header.style.transform = 'translateY(0)';
         }
-    };
-
-    // 检查用户之前的主题偏好
-    const checkThemePreference = () => {
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         
-        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
-            document.body.classList.add('dark-theme');
-            const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                themeToggle.setAttribute('title', '切换浅色模式');
-            }
+        // 更改导航栏背景透明度
+        if (scrollTop > 10) {
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+            header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+            header.style.boxShadow = 'none';
         }
-    };
-
-    // 初始化
-    createThemeToggle();
-    checkThemePreference();
-});
-
-// 移动端菜单切换
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('.nav');
-
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-        });
-    }
-});
-
-// 联系表单提交功能
-// 在main.js文件末尾添加以下代码
-
-// 处理联系表单提交
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        console.log('找到联系表单，添加提交事件监听器');
         
-        contactForm.addEventListener('submit', function(e) {
+        lastScrollTop = scrollTop;
+    });
+    
+    // 响应式菜单
+    const menuIcon = document.querySelector('.menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuIcon) {
+        menuIcon.addEventListener('click', function(e) {
             e.preventDefault();
-            console.log('表单提交被触发');
             
-            // 获取表单元素
-            const nameInput = document.querySelector('input[name="name"]');
-            const emailInput = document.querySelector('input[name="email"]');
-            const messageInput = document.querySelector('textarea[name="message"]');
-            
-            // 调试信息
-            console.log('表单元素:', {
-                nameInput: nameInput ? nameInput.value : 'not found',
-                emailInput: emailInput ? emailInput.value : 'not found',
-                messageInput: messageInput ? messageInput.value : 'not found'
-            });
-            
-            // 检查表单元素是否存在
-            if (!nameInput || !emailInput || !messageInput) {
-                console.error('表单元素未找到，尝试使用备用选择器');
-                // 尝试备用选择器
-                const inputs = contactForm.querySelectorAll('input, textarea');
-                console.log('找到的输入元素数量:', inputs.length);
+            // 创建移动端菜单
+            if (!document.querySelector('.mobile-menu')) {
+                const mobileMenu = document.createElement('div');
+                mobileMenu.className = 'mobile-menu';
                 
-                if (inputs.length >= 3) {
-                    // 使用表单中的前三个输入元素
-                    const formData = {
-                        name: inputs[0].value,
-                        email: inputs[1].value,
-                        message: inputs[2].value
-                    };
-                    console.log('使用备用方法获取的表单数据:', formData);
-                    sendContactForm(formData);
-                } else {
-                    alert('表单元素未找到，请检查页面结构');
-                }
-                return;
+                // 复制导航链接
+                const navLinksClone = navLinks.cloneNode(true);
+                mobileMenu.appendChild(navLinksClone);
+                
+                // 添加关闭按钮
+                const closeBtn = document.createElement('button');
+                closeBtn.className = 'close-menu';
+                closeBtn.innerHTML = '&times;';
+                mobileMenu.appendChild(closeBtn);
+                
+                document.body.appendChild(mobileMenu);
+                
+                // 防止滚动
+                document.body.style.overflow = 'hidden';
+                
+                // 关闭菜单事件
+                closeBtn.addEventListener('click', function() {
+                    document.body.removeChild(mobileMenu);
+                    document.body.style.overflow = '';
+                });
+                
+                // 点击链接后关闭菜单
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        document.body.removeChild(mobileMenu);
+                        document.body.style.overflow = '';
+                    });
+                });
             }
-            
-            const formData = {
-                name: nameInput.value,
-                email: emailInput.value,
-                message: messageInput.value
-            };
-            
-            console.log('准备发送表单数据:', formData);
-            sendContactForm(formData);
         });
-    } else {
-        console.error('联系表单未找到');
     }
     
-    // 提取发送表单数据的函数
-    function sendContactForm(formData) {
-        console.log('开始发送表单数据');
+    // 添加滚动动画
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.product-item, .grid-item, .project-card');
         
-        // 使用相对路径，适应不同环境
-        const apiUrl = '/api/contact';
-        console.log('提交到API:', apiUrl);
-        
-        // 显示加载状态
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn ? submitBtn.textContent : '发送留言';
-        if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = '发送中...';
-        }
-        
-        // 发送到后端API
-        fetch(apiUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(formData),
-            // 添加这一行，确保不使用缓存
-            cache: 'no-cache'
-        })
-        .then(response => {
-            console.log('收到响应:', response.status, response.statusText);
-            // 即使状态码不是200，也尝试解析JSON
-            return response.json().catch(() => {
-                // 处理非JSON响应
-                if (!response.ok) {
-                    throw new Error(`服务器返回错误状态码: ${response.status}`);
-                }
-                throw new Error('服务器返回了非JSON格式的响应');
-            });
-        })
-        .then(data => {
-            console.log('响应数据:', data);
-            if (data.success) {
-                alert('消息发送成功！');
-                contactForm.reset();
-            } else {
-                alert('发送失败：' + (data.message || '未知错误'));
-            }
-        })
-        .catch(error => {
-            console.error('提交表单时出错:', error);
-            // 更详细的错误信息
-            alert('发送失败，请稍后再试。\n错误详情: ' + error.message);
-        })
-        .finally(() => {
-            // 恢复按钮状态
-            if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight * 0.8) {
+                element.classList.add('animate-in');
             }
         });
-    }
+    };
+    
+    // 初始检查
+    animateOnScroll();
+    
+    // 滚动时检查
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // 添加CSS动画类
+    const style = document.createElement('style');
+    style.textContent = `
+        .product-item, .grid-item, .project-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .mobile-menu .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .mobile-menu .nav-links a {
+            font-size: 24px;
+        }
+        
+        .close-menu {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    `;
+    
+    document.head.appendChild(style);
+    
+    // 平滑滚动到锚点
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            if (href !== '#') {
+                e.preventDefault();
+                
+                const targetElement = document.querySelector(href);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // 创建图片文件夹占位提示
+    console.log('注意：请创建 images 文件夹并添加以下图片：');
+    console.log('- product-engine.jpg');
+    console.log('- product-toolchain.jpg');
+    console.log('- product-platform.jpg');
 });

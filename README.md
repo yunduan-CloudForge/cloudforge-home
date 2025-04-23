@@ -1,152 +1,73 @@
-# 项目介绍
+# 云锻开源官网
 
-# 云锻开源团队官网
+这是一个参考苹果中国官网设计风格的云锻开源官网项目。项目采用HTML、CSS和JavaScript技术栈构建，具有现代化的UI设计和响应式布局。
 
-## 项目介绍
-
-云锻开源团队官网是一个基于Flask的全栈网站项目，旨在展示云锻开源团队的使命、愿景、项目和团队成员，同时提供联系表单功能，方便访问者与团队取得联系。
-
-## 功能特点
-
-- **响应式设计**：适配各种设备屏幕尺寸
-- **单页应用**：流畅的用户体验
-- **联系表单**：访客可以直接在网站上发送留言
-- **邮件通知**：自动发送邮件通知团队成员
-- **API接口**：提供RESTful API接口
-- **CORS支持**：支持跨域资源共享
-- **本地存储**：留言内容保存到本地文件
-
-## 技术栈
-
-- **前端**：HTML5, CSS3, JavaScript
-- **后端**：Python, Flask
-- **邮件服务**：Flask-Mail
-- **API**：RESTful API
-- **部署**：支持Docker部署
-
-## 目录结构
+## 项目结构
 
 ```
-云锻科技/官网/
-├── app.py                 # Flask应用主文件
-├── index.html             # 网站首页
-├── about.html             # 关于我们页面
-├── contact.html           # 联系我们页面
-├── css/                   # CSS样式文件
-│   └── style.css          # 主样式文件
-├── js/                    # JavaScript文件
-│   ├── main.js            # 主脚本文件
-│   └── backend-status.js  # 后端状态检测脚本
-├── images/                # 图片资源
-├── messages/              # 存储留言的目录
-└── README.md              # 项目说明文档
+├── css/
+│   ├── reset.css      # 重置样式
+│   ├── style.css      # 主样式文件
+│   └── responsive.css # 响应式样式
+├── images/
+│   ├── product-engine.jpg    # 产品图片
+│   ├── product-toolchain.jpg # 产品图片
+│   └── product-platform.jpg  # 产品图片
+├── js/
+│   └── main.js        # 主JavaScript文件
+├── index.html         # 主页面
+└── README.md          # 项目说明文档
 ```
 
-## 安装说明
+## 特点
 
-### 环境要求
-
-- Python 3.8+
-- pip 包管理工具
-
-### 安装步骤
-
-1. 克隆仓库到本地
-
-```bash
-git clone https://github.com/yunduan-CloudForge/website.git
-cd website
-```
-
-2. 安装依赖包
-
-```bash
-pip install -r requirements.txt
-```
-
-如果没有requirements.txt文件，请安装以下依赖：
-
-```bash
-pip install flask flask-mail flask-cors
-```
-
-3. 配置邮件服务
-
-编辑`app.py`文件，修改邮件配置部分：
-
-```python
-# 邮件配置
-app.config['MAIL_SERVER'] = 'your_mail_server'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'your_email@example.com'
-app.config['MAIL_PASSWORD'] = 'your_password'
-```
+- **现代化设计**：参考苹果官网的简洁大气设计风格
+- **响应式布局**：适配各种设备尺寸，从手机到桌面设备
+- **交互动画**：包含滚动动画、导航栏效果等交互元素
+- **模块化结构**：代码组织清晰，易于维护和扩展
 
 ## 使用方法
 
-### 本地运行
+1. 直接在浏览器中打开`index.html`文件即可查看网站
+2. 也可以使用任意HTTP服务器托管项目文件夹
 
-```bash
-python app.py
-```
+## 自定义修改
 
-服务器将在 http://localhost:5000 启动。
+### 修改内容
 
-### 部署到生产环境
+- 编辑`index.html`文件中的文本内容和链接
+- 替换`images/`文件夹中的图片资源
+- 根据需要调整`css/style.css`中的样式
 
-推荐使用Gunicorn和Nginx进行部署：
+### 修改颜色主题
 
-```bash
-gunicorn -w 4 -b 127.0.0.1:5000 app:app
-```
+在`css/style.css`文件中，可以修改`:root`选择器中的CSS变量来更改网站的主题颜色：
 
-然后配置Nginx反向代理到该地址。
-
-## API文档
-
-### 获取API信息
-
-```
-GET /api
-```
-
-返回API基本信息和可用端点。
-
-### 联系表单提交
-
-```
-POST /api/contact
-```
-
-请求体示例：
-
-```json
-{
-  "name": "姓名",
-  "email": "邮箱",
-  "message": "留言内容"
+```css
+:root {
+    --primary-color: #0071e3; /* 主色调 */
+    --secondary-color: #1d1d1f; /* 次要色调 */
+    --light-color: #f5f5f7; /* 浅色背景 */
+    /* 其他颜色变量... */
 }
 ```
 
-## 贡献指南
+## 扩展建议
 
-1. Fork 本仓库
-2. 创建您的特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交您的更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 打开一个 Pull Request
+- 添加更多页面，如产品详情页、关于我们、联系方式等
+- 集成表单提交功能，用于收集用户反馈
+- 添加多语言支持
+- 集成实际的开源项目展示和下载链接
 
-## 联系我们
+## 浏览器兼容性
 
-- 官方网站：[https://www.yunforge.xyz](https://www.yunforge.xyz)
-- 邮箱：CloudForge-official@yunforge.xyz
-- QQ群：[点击加入](https://qm.qq.com/q/lvISn1GCZ4)
+网站兼容所有现代浏览器，包括：
+
+- Chrome
+- Firefox
+- Safari
+- Edge
 
 ## 许可证
 
 本项目采用 MIT 许可证 - 详情请参阅 [LICENSE](LICENSE) 文件。
-
-## 致谢
-
-感谢所有为云锻开源团队做出贡献的开发者和社区成员！
