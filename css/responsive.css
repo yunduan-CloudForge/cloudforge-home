@@ -158,4 +158,115 @@
         justify-content: center;
         gap: 15px;
     }
+    
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .team-member {
+        padding: 20px;
+    }
+
+    .member-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .member-name {
+        font-size: 1.2rem;
+    }
+
+    .member-role {
+        font-size: 0.9rem;
+    }
+
+    .member-bio {
+        font-size: 0.85rem;
+    }
+
+    .social-links a {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    /* 友情链接响应式 */
+    .partners-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .partner-card {
+        padding: 20px;
+    }
+
+    .partner-logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .partner-logo i {
+        font-size: 20px;
+    }
+
+    .partner-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .partner-categories {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px;
+    }
+
+    .category-section h3 {
+        font-size: 1.2rem;
+    }
+
+    /* 友情链接小屏幕响应式 */
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .partner-card {
+        padding: 15px;
+    }
+
+    .partner-logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .partner-logo i {
+        font-size: 18px;
+    }
+
+    .partner-info h3 {
+        font-size: 1.1rem;
+    }
+
+    .partner-description {
+        font-size: 0.9rem;
+    }
+
+    .partner-tag {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+    }
+
+    .partner-categories {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .category-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .apply-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
