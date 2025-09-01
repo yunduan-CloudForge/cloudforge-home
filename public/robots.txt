@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# 优化爬虫访问
+Allow: /projects
+Allow: /docs
+Allow: /community
+Allow: /about
+Allow: /downloads
+Allow: /contact
+
+# 禁止访问的路径
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /admin/
+Disallow: /private/
+
+# 站点地图
+Sitemap: https://cloudforge.org.cn/sitemap.xml
+
+# 爬虫延迟（可选）
+Crawl-delay: 1
