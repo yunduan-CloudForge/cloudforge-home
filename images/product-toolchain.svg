@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f0f0f0"/>
+  <rect x="150" y="100" width="500" height="300" rx="20" fill="#42a5f5"/>
+  <text x="400" y="250" font-family="Arial" font-size="40" font-weight="bold" fill="white" text-anchor="middle">云锻工具链</text>
+  <text x="400" y="300" font-family="Arial" font-size="20" fill="white" text-anchor="middle">一站式开发工具集</text>
+  <rect x="320" y="150" width="30" height="30" fill="white" opacity="0.8"/>
+  <rect x="370" y="150" width="30" height="30" fill="white" opacity="0.8"/>
+  <rect x="420" y="150" width="30" height="30" fill="white" opacity="0.8"/>
+  <rect x="370" y="150" width="30" height="30" fill="white" opacity="0.8"/>
+  <rect x="345" y="180" width="80" height="10" fill="white" opacity="0.8" rx="5"/>
+</svg>

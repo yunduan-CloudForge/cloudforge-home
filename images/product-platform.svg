@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f0f0f0"/>
+  <rect x="150" y="100" width="500" height="300" rx="20" fill="#6a1b9a"/>
+  <text x="400" y="250" font-family="Arial" font-size="40" font-weight="bold" fill="white" text-anchor="middle">云锻平台</text>
+  <text x="400" y="300" font-family="Arial" font-size="20" fill="white" text-anchor="middle">开源协作平台</text>
+  <circle cx="350" cy="170" r="20" fill="white" opacity="0.8"/>
+  <circle cx="400" cy="170" r="20" fill="white" opacity="0.8"/>
+  <circle cx="450" cy="170" r="20" fill="white" opacity="0.8"/>
+  <path d="M350 170 L450 170" stroke="white" stroke-width="2" opacity="0.8"/>
+</svg>

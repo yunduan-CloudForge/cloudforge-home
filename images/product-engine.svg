@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f0f0f0"/>
+  <rect x="150" y="100" width="500" height="300" rx="20" fill="#0071e3"/>
+  <text x="400" y="250" font-family="Arial" font-size="40" font-weight="bold" fill="white" text-anchor="middle">云锻引擎</text>
+  <text x="400" y="300" font-family="Arial" font-size="20" fill="white" text-anchor="middle">强大的开源计算引擎</text>
+  <circle cx="400" cy="180" r="40" fill="white" opacity="0.8"/>
+  <path d="M385 170 L425 170 L425 190 L385 190 Z" fill="#0071e3"/>
+  <path d="M395 160 L415 160 L415 200 L395 200 Z" fill="#0071e3"/>
+</svg>

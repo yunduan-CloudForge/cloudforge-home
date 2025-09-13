@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>申请友情链接 - CloudForge OSS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .apply-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 100px 0 50px;
+        }
+        
+        .apply-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .apply-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .apply-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+        
+        .apply-subtitle {
+            font-size: 1.2rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .requirements-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            color: #4f46e5;
+        }
+        
+        .requirement-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .requirement-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #4f46e5;
+        }
+        
+        .requirement-item i {
+            color: #4f46e5;
+            margin-top: 2px;
+        }
+        
+        .requirement-text {
+            color: #374151;
+            line-height: 1.6;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3);
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #6b7280;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 30px;
+        }
+        
+        .back-btn:hover {
+            background: #4b5563;
+            transform: translateY(-2px);
+        }
+        
+        .example-card {
+            background: #f0f9ff;
+            border: 1px solid #0ea5e9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .example-title {
+            color: #0369a1;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .example-content {
+            color: #0c4a6e;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="apply-page">
+        <div class="apply-container">
+            <div class="apply-header">
+                <h1 class="apply-title">申请友情链接</h1>
+                <p class="apply-subtitle">欢迎优秀的开源项目和技术团队与我们建立友情链接合作关系</p>
+            </div>
+            
+            <div class="requirements-card">
+                <h2 class="section-title">
+                    <i class="fas fa-clipboard-list"></i>
+                    申请要求
+                </h2>
+                <ul class="requirement-list">
+                    <li class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="requirement-text">
+                            <strong>网站质量：</strong>网站内容健康、积极向上，无违法违规内容，界面美观，用户体验良好
+                        </div>
+                    </li>
+                    <li class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="requirement-text">
+                            <strong>技术相关：</strong>网站内容与技术、开源、编程、云计算等领域相关，或为优秀的技术团队/个人博客
+                        </div>
+                    </li>
+                    <li class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="requirement-text">
+                            <strong>更新频率：</strong>网站保持定期更新，内容具有一定的原创性和价值
+                        </div>
+                    </li>
+                    <li class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="requirement-text">
+                            <strong>访问稳定：</strong>网站访问稳定，加载速度良好，支持HTTPS访问
+                        </div>
+                    </li>
+                    <li class="requirement-item">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="requirement-text">
+                            <strong>互惠原则：</strong>需要在您的网站上添加我们的友情链接，实现互惠互利
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="requirements-card">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    我们的信息
+                </h2>
+                <div class="example-card">
+                    <div class="example-title">请在您的网站添加以下信息：</div>
+                    <div class="example-content">
+                        网站名称：CloudForge OSS<br>
+                        网站地址：https://cloudforge-oss.github.io<br>
+                        网站描述：专注于云原生技术的开源团队，致力于构建高质量的开源项目<br>
+                        Logo：可使用我们的官方Logo或文字链接
+                    </div>
+                </div>
+            </div>
+            
+            <div class="requirements-card">
+                <h2 class="section-title">
+                    <i class="fas fa-paper-plane"></i>
+                    申请方式
+                </h2>
+                <p style="color: #6b7280; margin-bottom: 20px;">请通过以下任一方式联系我们申请友情链接：</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-title">邮箱联系</div>
+                        <div class="contact-info">CloudForge-official@yunforge.xyz</div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-title">GitHub Issue</div>
+                        <div class="contact-info">在我们的仓库提交Issue</div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-qq"></i>
+                        </div>
+                        <div class="contact-title">QQ群</div>
+                        <div class="contact-info">1036011225</div>
+                    </div>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-title">申请时请提供以下信息：</div>
+                    <div class="example-content">
+                        1. 网站名称<br>
+                        2. 网站地址<br>
+                        3. 网站描述（50字以内）<br>
+                        4. 联系方式<br>
+                        5. 您已添加我们友链的页面地址
+                    </div>
+                </div>
+            </div>
+            
+            <div class="requirements-card">
+                <h2 class="section-title">
+                    <i class="fas fa-clock"></i>
+                    处理时间
+                </h2>
+                <p style="color: #6b7280; line-height: 1.6;">
+                    我们会在收到申请后的 <strong>3-7个工作日</strong> 内进行审核，审核通过后会及时添加友情链接并回复确认。
+                    如有疑问，欢迎随时联系我们。
+                </p>
+            </div>
+            
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                返回首页
+            </a>
+        </div>
+    </div>
+</body>
+</html>
